@@ -17,6 +17,14 @@ if(!process.env.DISCORD_BOT_TOKEN && !process.env.CRONTAB_SCHEDULE) {
   process.exit(0)
 }
 
+const PORT = process.env.PORT || 3000;
+
+const express = require('express');
+const app = express();
+app.listen(3000, function() {
+  console.log(`Running on ${PORT}`)
+});
+
 const client = new Discord.Client();
 const botToken = process.env.DISCORD_BOT_TOKEN;
 const crontab = process.env.CRONTAB_SCHEDULE;
