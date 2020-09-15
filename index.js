@@ -9,7 +9,9 @@ const messages = [
   "No me ignoren, ogts!",
 ];
 
-require('dotenv').config()
+if (!process.env.NODE_ENV)
+  require('dotenv').config()
+  
 if(!process.env.DISCORD_BOT_TOKEN && !process.env.CRONTAB_SCHEDULE) {
   console.error("Environment not properly configured!")
   process.exit(0)
